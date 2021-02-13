@@ -1,0 +1,39 @@
+/* 
+
+Description:
+
+Count the number of exclamation marks and question marks, return the product.
+Examples
+
+Product("") == 0
+product("!") == 0
+Product("!ab? ?") == 2
+Product("!!") == 0
+Product("!??") == 2
+Product("!???") == 3
+Product("!!!??") == 6
+Product("!!!???") == 9
+Product("!???!!") == 9
+Product("!????!!!?") == 20
+
+
+*/
+
+function product(s) {
+  //coding and coding....
+  var re = /(!|\?)/gi; 
+ // s = s.match(re);
+  //s=s.join('');
+  var countExc = 0, countQues = 0;
+  var posExc = s.indexOf('!');
+  var posQues = s.indexOf('?');
+  while (posExc !== -1) {
+    countExc++;
+    posExc = s.indexOf('!', posExc + 1);
+  }
+  while (posQues !== -1) {
+    countQues++;
+    posQues = s.indexOf('?', posQues + 1);
+  }
+  return countExc * countQues;
+}
